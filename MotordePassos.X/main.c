@@ -10,6 +10,9 @@
 #include "config.h"
 #include "delay.h"
 
+//paiva
+
+
 #define PORTDbits.RD2   A-    
 #define PORTDbits.RD3   B-    
 #define PORTDbits.RD4   A+    
