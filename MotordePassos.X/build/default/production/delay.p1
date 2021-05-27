@@ -237,41 +237,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"12 delay.c
-[; ;delay.c: 12: void delay( unsigned int t )
-[v _delay `(v ~T0 @X0 1 ef1`ui ]
+"5 ./config.h
+[p x FOSC = INTRC_NOCLKOUT ]
+"6
+[p x WDTE = OFF ]
+"7
+[p x PWRTE = OFF ]
+"8
+[p x MCLRE = OFF ]
+"9
+[p x CP = OFF ]
+"10
+[p x CPD = OFF ]
+"11
+[p x BOREN = OFF ]
+"12
+[p x IESO = OFF ]
 "13
-[; ;delay.c: 13: {
+[p x FCMEN = OFF ]
+"14
+[p x LVP = OFF ]
+"17
+[p x BOR4V = BOR40V ]
+"18
+[p x WRT = OFF ]
+"13 delay.c
+[; ;delay.c: 13: void delay (unsigned int t )
+[v _delay `(v ~T0 @X0 1 ef1`ui ]
+"14
+[; ;delay.c: 14: {
 {
 [e :U _delay ]
-"12
-[; ;delay.c: 12: void delay( unsigned int t )
-[v _t `ui ~T0 @X0 1 r1 ]
 "13
-[; ;delay.c: 13: {
-[f ]
+[; ;delay.c: 13: void delay (unsigned int t )
+[v _t `ui ~T0 @X0 1 r1 ]
 "14
-[; ;delay.c: 14:     while( t )
+[; ;delay.c: 14: {
+[f ]
+"15
+[; ;delay.c: 15:     while( t )
 [e $U 139  ]
 [e :U 140 ]
-"15
-[; ;delay.c: 15:     {
-{
 "16
-[; ;delay.c: 16:         _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;delay.c: 16:     {
+{
 "17
-[; ;delay.c: 17:         --t;
-[e =- _t -> -> 1 `i `ui ]
+[; ;delay.c: 17:         _delay((unsigned long)((1)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "18
-[; ;delay.c: 18:     }
+[; ;delay.c: 18:         --t;
+[e =- _t -> -> 1 `i `ui ]
+"19
+[; ;delay.c: 19:     }
 }
 [e :U 139 ]
-"14
-[; ;delay.c: 14:     while( t )
+"15
+[; ;delay.c: 15:     while( t )
 [e $ != _t -> -> 0 `i `ui 140  ]
 [e :U 141 ]
-"19
-[; ;delay.c: 19: }
+"20
+[; ;delay.c: 20: }
 [e :UE 138 ]
 }
