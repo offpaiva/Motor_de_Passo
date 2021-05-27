@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "MotorPasso.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
+# 1 "MotorPasso.c" 2
 
 
 
@@ -2499,28 +2499,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
-
-# 1 "./config.h" 1
-
-
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-# 10 "main.c" 2
+# 9 "MotorPasso.c" 2
 
 # 1 "./delay.h" 1
 
@@ -2529,7 +2508,7 @@ extern __bank0 __bit __timeout;
 
 
 void delay( unsigned int t );
-# 11 "main.c" 2
+# 10 "MotorPasso.c" 2
 
 # 1 "./MotorPasso.h" 1
 
@@ -2542,22 +2521,42 @@ void delay( unsigned int t );
 
 
     void stepMotor (char sentido, int graus, int t);
-# 12 "main.c" 2
+# 11 "MotorPasso.c" 2
 
 
+int ppr = 16;
+char passos[4] = {0x02,0x04,0x01,0x08};
+char indice = 0;
 
-
-
-void main (void)
+void stepMotor_init(int pulsosPorRevolucao)
 {
-    stepMotor_init ( 100 );
-    delay(3000);
+    TRISDbits.TRISD0 = 0;
+    TRISDbits.TRISD1 = 0;
+    TRISDbits.TRISD2 = 0;
+    TRISDbits.TRISD3 = 0;
 
-    while( 1 )
+    PORTDbits.RD0 = 0;
+    PORTDbits.RD1 = 0;
+    PORTDbits.RD2 = 0;
+    PORTDbits.RD3 = 0;
+
+    ppr = pulsosPorRevolucao;
+}
+
+
+
+void stepMotor (char sentido, int graus, int t)
+{
+    int i;
+    int numPassos;
+    numPassos = (graus * ppr)/360;
+
+    for(i=0; i<numPassos; i++)
     {
-        stepMotor( 1, 90, 100);
-        delay(3000);
-        stepMotor( -1, 180, 20);
-        delay(3000);
+        PORTD =((PORTD & 0xF0) | passos[indice]);
+        indice = (indice+sentido) % 4;
+        delay(250);
+
+
     }
 }
