@@ -1,28 +1,35 @@
 /*
  * File:   main.c
- * Author: 20185315
+ * Author: 20185206
  *
- * Created on 21 de Maio de 2021, 14:37
+ * Created on 27 de Maio de 2021, 13:18
  */
 
 
 #include <xc.h>
 #include "config.h"
 #include "delay.h"
+#include "MotorPasso.h"
 
-//paiva
+#define cw 1
+#define ccw -1
 
-
-#define PORTDbits.RD2   A-    
-#define PORTDbits.RD3   B-    
-#define PORTDbits.RD4   A+    
-#define PORTDbits.RD5   B+    
-
-void main(void)
+void main (void)
 {
-    while(1)
+    stepMotor_init ( 100 );
+    delay(3000);
+    
+    while( 1 )
     {
-        A+ = 1;
-        delay(1000);
-    }
+        stepMotor( cw, 90, 100);
+        delay(3000);
+        stepMotor( ccw, 180, 20);
+        delay(3000);
+    }   
 }
+
+
+
+
+
+
