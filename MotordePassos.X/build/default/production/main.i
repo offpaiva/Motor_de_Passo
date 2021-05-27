@@ -2528,20 +2528,17 @@ extern __bank0 __bit __timeout;
 
 
 
-void delay( unsigned int t );
+void delay(unsigned int t );
 # 11 "main.c" 2
 
 # 1 "./MotorPasso.h" 1
 
 
 
-
-
-
     void stepMotor_init(int pulsosPorRevolucao);
-
-
-    void stepMotor (char sentido, int graus, int t);
+    void stepMotor (char sentido, int graus, char t);
+    void meiopasso (char sentido, int graus, char t);
+    void passoduplo (char sentido, int graus, char t);
 # 12 "main.c" 2
 
 
@@ -2550,14 +2547,12 @@ void delay( unsigned int t );
 
 void main (void)
 {
-    stepMotor_init ( 100 );
-    delay(3000);
+    stepMotor_init (8);
 
     while( 1 )
     {
-        stepMotor( 1, 90, 100);
-        delay(3000);
-        stepMotor( -1, 180, 20);
-        delay(3000);
-    }
+        stepMotor(-1, 360,20);
+        delay(300);
+        stepMotor(1, 360,20);
+    } delay(3000);
 }

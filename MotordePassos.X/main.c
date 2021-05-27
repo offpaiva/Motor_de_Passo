@@ -16,16 +16,14 @@
 
 void main (void)
 {
-    stepMotor_init ( 100 );
-    delay(3000);
+    stepMotor_init (8);
     
     while( 1 )
     {
-        stepMotor( cw, 90, 100);
-        delay(3000);
-        stepMotor( ccw, 180, 20);
-        delay(3000);
-    }   
+        stepMotor(ccw, 360,20);
+        delay(300);
+        stepMotor(cw, 360,20);
+    }    delay(3000);
 }
 
 
