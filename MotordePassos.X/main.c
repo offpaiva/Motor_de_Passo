@@ -15,7 +15,7 @@
 #define ccw -1
 
 // inserir no while as funçoes (stepMotor, meiopasso, passo)
-// cw= sentido horario cw= antihorario
+// cw= sentido horario ccw= antihorario
 // colocar primeiro sentido, depois o grau, depois o tempo
 // usar mais de uma funçao requer o uso do delay
 
