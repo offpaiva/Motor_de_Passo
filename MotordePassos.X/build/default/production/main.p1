@@ -3,12 +3,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4 ./MotorPasso.h
 [; ;./MotorPasso.h: 4:     void stepMotor_init(int pulsosPorRevolucao);
 [v _stepMotor_init `(v ~T0 @X0 0 ef1`i ]
-"5
-[; ;./MotorPasso.h: 5:     void stepMotor (char sentido, int graus, char t);
-[v _stepMotor `(v ~T0 @X0 0 ef3`uc`i`uc ]
+"6
+[; ;./MotorPasso.h: 6:     void meiopasso (char sentido, int graus, char t);
+[v _meiopasso `(v ~T0 @X0 0 ef3`uc`i`uc ]
 "6 ./delay.h
 [; ;./delay.h: 6: void delay(unsigned int t );
 [v _delay `(v ~T0 @X0 0 ef1`ui ]
+"5 ./MotorPasso.h
+[; ;./MotorPasso.h: 5:     void stepMotor (char sentido, int graus, char t);
+[v _stepMotor `(v ~T0 @X0 0 ef3`uc`i`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -268,40 +271,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [p x WRT = OFF ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"17 main.c
-[; ;main.c: 17: void main (void)
+"22 main.c
+[; ;main.c: 22: void main (void)
 [v _main `(v ~T0 @X0 1 ef ]
-"18
-[; ;main.c: 18: {
+"23
+[; ;main.c: 23: {
 {
 [e :U _main ]
 [f ]
-"19
-[; ;main.c: 19:     stepMotor_init (8);
-[e ( _stepMotor_init (1 -> 8 `i ]
-"21
-[; ;main.c: 21:     while( 1 )
-[e :U 140 ]
-"22
-[; ;main.c: 22:     {
-{
-"23
-[; ;main.c: 23:         stepMotor(-1, 360,20);
-[e ( _stepMotor (3 , , -> -U -> 1 `i `uc -> 360 `i -> -> 20 `i `uc ]
 "24
-[; ;main.c: 24:         delay(300);
-[e ( _delay (1 -> -> 300 `i `ui ]
-"25
-[; ;main.c: 25:         stepMotor(1, 360,20);
-[e ( _stepMotor (3 , , -> -> 1 `i `uc -> 360 `i -> -> 20 `i `uc ]
+[; ;main.c: 24:     stepMotor_init (8);
+[e ( _stepMotor_init (1 -> 8 `i ]
 "26
-[; ;main.c: 26:     } delay(3000);
+[; ;main.c: 26:     while( 1 )
+[e :U 140 ]
+"27
+[; ;main.c: 27:     {
+{
+"28
+[; ;main.c: 28:         meiopasso(1, 360,20);
+[e ( _meiopasso (3 , , -> -> 1 `i `uc -> 360 `i -> -> 20 `i `uc ]
+"29
+[; ;main.c: 29:         delay(300);
+[e ( _delay (1 -> -> 300 `i `ui ]
+"30
+[; ;main.c: 30:         stepMotor(-1, 90, 20);
+[e ( _stepMotor (3 , , -> -U -> 1 `i `uc -> 90 `i -> -> 20 `i `uc ]
+"31
+[; ;main.c: 31:     }
 }
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-[e ( _delay (1 -> -> 3000 `i `ui ]
-"27
-[; ;main.c: 27: }
+"32
+[; ;main.c: 32: }
 [e :UE 138 ]
 }

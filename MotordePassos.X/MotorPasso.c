@@ -42,10 +42,10 @@ void stepMotor (char sentido, int graus, char t)
     for(i=0; i<numPassos; i++)
     {
         indice = (indice+sentido) % 4;
-        delay(250);
         PORTD =((PORTD & 0xF0) | passos[indice]);
-     
-    
+        delay(250);
+
+      
     }    
 }
 
@@ -60,10 +60,9 @@ void meiopasso (char sentido, int graus, char t)
         indice = ( indice + sentido )  % 8;
         delay(250);
         PORTD = (PORTD & 0xF0) | meiopas[indice];
-     
-      
-    }    
-}
+        
+    }
+}   
 
 
 void passoduplo (char sentido, int graus, char t)
@@ -77,10 +76,8 @@ void passoduplo (char sentido, int graus, char t)
       indice = ( indice + sentido )  % 4;  
       delay(250);
       PORTD = (PORTD & 0xF0) | doispulsos[indice];
-      
-                         
-    }    
-}
+    }  
+}     
 
 
 

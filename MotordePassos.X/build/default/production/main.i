@@ -2540,19 +2540,15 @@ void delay(unsigned int t );
     void meiopasso (char sentido, int graus, char t);
     void passoduplo (char sentido, int graus, char t);
 # 12 "main.c" 2
-
-
-
-
-
+# 22 "main.c"
 void main (void)
 {
     stepMotor_init (8);
 
     while( 1 )
     {
-        stepMotor(-1, 360,20);
+        meiopasso(1, 360,20);
         delay(300);
-        stepMotor(1, 360,20);
-    } delay(3000);
+        stepMotor(-1, 90, 20);
+    }
 }

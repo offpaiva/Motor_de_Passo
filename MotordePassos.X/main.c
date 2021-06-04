@@ -14,20 +14,22 @@
 #define cw 1
 #define ccw -1
 
-// inserir no while as funçoes (stepMotor, meiopasso, passo)
-// cw= sentido horario ccw= antihorario
-// colocar primeiro sentido, depois o grau, depois o tempo
+//                       instruções
+// escolher e inserir no while as funçoes (stepMotor, meiopasso, passoduplo)
+// cw= sentido horario ccw= anti-horario
+// colocar primeiro sentido, depois o graus, tempo
 // usar mais de uma funçao requer o uso do delay
 
 void main (void)
 {
-    stepMotor_init (8);
+    stepMotor_init (16);
     
     while( 1 )
     {
-        meiopasso(cw, 360,20);
+        stepMotor(cw, 360, 200);
         delay(300);
-        stepMotor(ccw, 90, 20);
+        meiopasso(ccw, 180, 200);
+        delay(300);
     }    
 }
 

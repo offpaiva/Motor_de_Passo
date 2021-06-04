@@ -17,12 +17,14 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "13 C:\Users\20185206\MPLABXProjects\Motor_de_Passo\MotordePassos.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
-"17 C:\Users\20185206\MPLABXProjects\Motor_de_Passo\MotordePassos.X\main.c
+"22 C:\Users\20185206\MPLABXProjects\Motor_de_Passo\MotordePassos.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "19 C:\Users\20185206\MPLABXProjects\Motor_de_Passo\MotordePassos.X\MotorPasso.c
 [v _stepMotor_init stepMotor_init `(v  1 e 1 0 ]
 "36
 [v _stepMotor stepMotor `(v  1 e 1 0 ]
+"52
+[v _meiopasso meiopasso `(v  1 e 1 0 ]
 "352 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 [s S51 . 1 `uc 1 RD0 1 0 :1:0 
@@ -57,10 +59,10 @@
 [v _meiopas meiopas `[8]i  1 e 16 0 ]
 "17
 [v _doispulsos doispulsos `[4]uc  1 e 4 0 ]
-"17 C:\Users\20185206\MPLABXProjects\Motor_de_Passo\MotordePassos.X\main.c
+"22 C:\Users\20185206\MPLABXProjects\Motor_de_Passo\MotordePassos.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"27
+"32
 } 0
 "19 C:\Users\20185206\MPLABXProjects\Motor_de_Passo\MotordePassos.X\MotorPasso.c
 [v _stepMotor_init stepMotor_init `(v  1 e 1 0 ]
@@ -83,7 +85,24 @@
 [v stepMotor@t t `uc  1 p 1 6 ]
 "38
 [v stepMotor@sentido sentido `uc  1 a 1 7 ]
-"51
+"50
+} 0
+"52
+[v _meiopasso meiopasso `(v  1 e 1 0 ]
+{
+[v meiopasso@sentido sentido `uc  1 a 1 wreg ]
+"54
+[v meiopasso@indice indice `uc  1 a 1 10 ]
+[v meiopasso@i i `uc  1 a 1 9 ]
+"56
+[v meiopasso@numPasso numPasso `uc  1 a 1 8 ]
+"52
+[v meiopasso@sentido sentido `uc  1 a 1 wreg ]
+[v meiopasso@graus graus `i  1 p 2 4 ]
+[v meiopasso@t t `uc  1 p 1 6 ]
+"54
+[v meiopasso@sentido sentido `uc  1 a 1 7 ]
+"65
 } 0
 "13 C:\Users\20185206\MPLABXProjects\Motor_de_Passo\MotordePassos.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]

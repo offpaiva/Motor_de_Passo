@@ -412,68 +412,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MotorPasso.c: 43:     {
 {
 "44
-[; ;MotorPasso.c: 44:         PORTD =((PORTD & 0xF0) | passos[indice]);
-[e = _PORTD -> | & -> _PORTD `i -> 240 `i -> *U + &U _passos * -> _indice `ux -> -> # *U &U _passos `ui `ux `i `uc ]
-"45
-[; ;MotorPasso.c: 45:         delay(250);
-[e ( _delay (1 -> -> 250 `i `ui ]
-"46
-[; ;MotorPasso.c: 46:         indice = (indice+sentido) % 4;
+[; ;MotorPasso.c: 44:         indice = (indice+sentido) % 4;
 [e = _indice -> % + -> _indice `i -> _sentido `i -> 4 `i `uc ]
-"50
-[; ;MotorPasso.c: 50:     }
+"45
+[; ;MotorPasso.c: 45:         PORTD =((PORTD & 0xF0) | passos[indice]);
+[e = _PORTD -> | & -> _PORTD `i -> 240 `i -> *U + &U _passos * -> _indice `ux -> -> # *U &U _passos `ui `ux `i `uc ]
+"46
+[; ;MotorPasso.c: 46:         delay(250);
+[e ( _delay (1 -> -> 250 `i `ui ]
+"49
+[; ;MotorPasso.c: 49:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 143 ]
 [e $ < -> _i `i -> _numPassos `i 140  ]
 [e :U 141 ]
 }
-"51
-[; ;MotorPasso.c: 51: }
+"50
+[; ;MotorPasso.c: 50: }
 [e :UE 139 ]
 }
-"53
-[; ;MotorPasso.c: 53: void meiopasso (char sentido, int graus, char t)
+"52
+[; ;MotorPasso.c: 52: void meiopasso (char sentido, int graus, char t)
 [v _meiopasso `(v ~T0 @X0 1 ef3`uc`i`uc ]
-"54
-[; ;MotorPasso.c: 54: {
+"53
+[; ;MotorPasso.c: 53: {
 {
 [e :U _meiopasso ]
-"53
-[; ;MotorPasso.c: 53: void meiopasso (char sentido, int graus, char t)
+"52
+[; ;MotorPasso.c: 52: void meiopasso (char sentido, int graus, char t)
 [v _sentido `uc ~T0 @X0 1 r1 ]
 [v _graus `i ~T0 @X0 1 r2 ]
 [v _t `uc ~T0 @X0 1 r3 ]
-"54
-[; ;MotorPasso.c: 54: {
+"53
+[; ;MotorPasso.c: 53: {
 [f ]
-"55
-[; ;MotorPasso.c: 55:     char i; char indice = 0;
+"54
+[; ;MotorPasso.c: 54:     char i; char indice = 0;
 [v _i `uc ~T0 @X0 1 a ]
 [v _indice `uc ~T0 @X0 1 a ]
 [e = _indice -> -> 0 `i `uc ]
-"57
-[; ;MotorPasso.c: 57:     char numPasso = (graus * ppr)/180;
+"56
+[; ;MotorPasso.c: 56:     char numPasso = (graus * ppr)/180;
 [v _numPasso `uc ~T0 @X0 1 a ]
 [e = _numPasso -> / * _graus _ppr -> 180 `i `uc ]
-"59
-[; ;MotorPasso.c: 59:     for(i=0; i<numPasso; i++)
+"58
+[; ;MotorPasso.c: 58:     for(i=0; i<numPasso; i++)
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 148  ]
 [e :U 145 ]
-"60
-[; ;MotorPasso.c: 60:     {
+"59
+[; ;MotorPasso.c: 59:     {
 {
-"61
-[; ;MotorPasso.c: 61:       PORTD = (PORTD & 0xF0) | meiopas[indice];
-[e = _PORTD -> | & -> _PORTD `i -> 240 `i *U + &U _meiopas * -> _indice `ux -> -> # *U &U _meiopas `ui `ux `uc ]
-"62
-[; ;MotorPasso.c: 62:       indice = ( indice + sentido ) % 8;
+"60
+[; ;MotorPasso.c: 60:         indice = ( indice + sentido ) % 8;
 [e = _indice -> % + -> _indice `i -> _sentido `i -> 8 `i `uc ]
-"63
-[; ;MotorPasso.c: 63:       delay(250);
+"61
+[; ;MotorPasso.c: 61:         delay(250);
 [e ( _delay (1 -> -> 250 `i `ui ]
+"62
+[; ;MotorPasso.c: 62:         PORTD = (PORTD & 0xF0) | meiopas[indice];
+[e = _PORTD -> | & -> _PORTD `i -> 240 `i *U + &U _meiopas * -> _indice `ux -> -> # *U &U _meiopas `ui `ux `uc ]
 "64
 [; ;MotorPasso.c: 64:     }
 }
@@ -520,14 +520,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MotorPasso.c: 75:     {
 {
 "76
-[; ;MotorPasso.c: 76:       PORTD = (PORTD & 0xF0) | doispulsos[indice];
-[e = _PORTD -> | & -> _PORTD `i -> 240 `i -> *U + &U _doispulsos * -> _indice `ux -> -> # *U &U _doispulsos `ui `ux `i `uc ]
+[; ;MotorPasso.c: 76:       indice = ( indice + sentido ) % 4;
+[e = _indice -> % + -> _indice `i -> _sentido `i -> 4 `i `uc ]
 "77
 [; ;MotorPasso.c: 77:       delay(250);
 [e ( _delay (1 -> -> 250 `i `ui ]
 "78
-[; ;MotorPasso.c: 78:       indice = ( indice + sentido ) % 4;
-[e = _indice -> % + -> _indice `i -> _sentido `i -> 4 `i `uc ]
+[; ;MotorPasso.c: 78:       PORTD = (PORTD & 0xF0) | doispulsos[indice];
+[e = _PORTD -> | & -> _PORTD `i -> 240 `i -> *U + &U _doispulsos * -> _indice `ux -> -> # *U &U _doispulsos `ui `ux `i `uc ]
 "79
 [; ;MotorPasso.c: 79:     }
 }
